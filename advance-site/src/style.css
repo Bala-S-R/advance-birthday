@@ -81,6 +81,20 @@ body {
   cursor: pointer;
 }
 
+@media (max-width: 600px) {
+
+  .back-btn,
+  .next-btn {
+    padding: 0.8rem 1.5rem !important;
+    font-size: 0.9rem !important;
+  }
+
+  .next-page-container {
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+}
+
 .back-btn:hover {
   background: rgba(255, 255, 255, 0.1) !important;
   color: #fff !important;
@@ -105,12 +119,19 @@ body {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 1rem;
-  /* Reduced mobile padding */
+  padding: 4rem 1.5rem;
+  /* Increased from 1rem to 1.5rem for better side spacing */
   animation: pageFadeIn 1s cubic-bezier(0.2, 1, 0.3, 1) forwards;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.gallery-subtitle {
+  text-align: center;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+  width: 100%;
 }
 
 @keyframes pageFadeIn {
@@ -471,11 +492,20 @@ body {
   transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
   text-transform: uppercase;
   letter-spacing: 2px;
-  min-width: clamp(200px, 40vw, 240px);
-  /* Stabilize width */
+  min-width: clamp(160px, 40vw, 240px);
+  /* Reduced min-width */
   text-align: center;
   position: relative;
   overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .nav-button {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.85rem;
+    min-width: 140px;
+    letter-spacing: 1px;
+  }
 }
 
 .nav-button:hover {
@@ -524,9 +554,10 @@ body {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(clamp(150px, 45vw, 280px), 1fr));
-  gap: clamp(15px, 3vw, 30px);
+  grid-template-columns: repeat(auto-fill, minmax(clamp(250px, 45vw, 350px), 1fr));
+  gap: clamp(2rem, 5vw, 3rem);
   padding: 2rem 0;
+  width: 100%;
 }
 
 .gallery-item {
@@ -1332,6 +1363,8 @@ body {
   font-size: 1.2rem;
   opacity: 0.7;
   font-style: italic;
+  text-align: center;
+  width: 100%;
 }
 
 .timeline-main {
@@ -1425,21 +1458,25 @@ body {
 
 @media (max-width: 768px) {
   .timeline-line {
-    left: 30px;
+    left: 50px;
   }
 
   .timeline-item {
     justify-content: flex-start;
-    padding-left: 60px;
-    padding-right: 0;
+    padding-left: 110px;
+    /* Increased from 80px to accommodate shifted dot */
+    padding-right: 20px;
+    /* Added right space */
   }
 
   .timeline-item.right {
-    padding-left: 60px;
+    padding-left: 110px;
+    /* Increased from 80px */
+    padding-right: 20px;
   }
 
   .timeline-dot {
-    left: 30px;
+    left: 50px;
   }
 
   .timeline-item.left .timeline-content,
